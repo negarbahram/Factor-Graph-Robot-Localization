@@ -26,23 +26,26 @@ The project demonstrates core probabilistic graphical model concepts, including 
 
 The complete robot trajectory is:
 
-$$
+```math
 X=\{x_0,x_1,\ldots,x_T\},
 \qquad
 x_t=(x_t,y_t,\theta_t)\in SE(2).
-$$
+```
 
 Given prior, odometry, GPS, loop-closure, and landmark observations, the posterior is factorized as:
 
-$$
+```math
+\begin{aligned}
 p(X\mid Z)
-\propto
+&\propto
 \phi_0(x_0)
-\prod_{t=1}^{T}\psi_t(x_{t-1},x_t)
+\prod_{t=1}^{T}\psi_t(x_{t-1},x_t) \\
+&\quad\times
 \prod_{m\in G}\gamma_m(x_m)
 \prod_{(i,j)\in L}\lambda_{ij}(x_i,x_j)
 \prod_{(t,k)\in M}\eta_{tk}(x_t;\ell_k).
-$$
+\end{aligned}
+```
 
 where:
 
@@ -55,16 +58,16 @@ where:
 
 Under Gaussian noise assumptions, MAP estimation becomes:
 
-$$
+```math
 X^\star
 =
 \arg\min_X
 \frac{1}{2}
-\sum_{a\in\mathcal F}
-r_a(X_a;z_a)^T
+\sum_{a\in\mathcal{F}}
+r_a(X_a;z_a)^{T}
 \Sigma_a^{-1}
 r_a(X_a;z_a).
-$$
+```
 
 For inconsistent measurements, the robust model replaces the purely quadratic penalty with Huber loss and solves the resulting problem using iteratively reweighted least squares.
 
