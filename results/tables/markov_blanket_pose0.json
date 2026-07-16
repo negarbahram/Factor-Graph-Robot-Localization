@@ -1,0 +1,21 @@
+{
+  "pose_id": 0,
+  "neighbor_pose_ids": [
+    1,
+    84
+  ],
+  "odometry_factors": [
+    "odom(0,1)"
+  ],
+  "loop_factors": [
+    "loop_0(0,84)"
+  ],
+  "gps_factors": [
+    "gps_0"
+  ],
+  "landmark_factors": [
+    "lm_0",
+    "lm_1"
+  ],
+  "has_prior": true
+}

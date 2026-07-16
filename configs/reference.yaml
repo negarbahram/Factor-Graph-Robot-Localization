@@ -1,0 +1,26 @@
+# Student-facing configuration for the PGM robot localization project.
+# Units: meter and radian.  All relative-pose measurements are expressed in the local frame of from_id.
+dataset_name: reference_v2_two_loop_city
+random_seed_for_dataset_generation: 240519
+number_of_poses: 260
+state_convention: [x, y, theta]
+angle_unit: radian
+relative_measurement_convention: local_frame_of_from_pose
+files:
+  prior: data/reference/initial_prior.csv
+  odometry: data/reference/odometry.csv
+  gps: data/reference/gps.csv
+  loop_closures: data/reference/loop_closures.csv
+  landmarks: data/reference/landmarks.csv
+  landmark_observations: data/reference/landmark_observations.csv
+  ground_truth_for_evaluation_only: data/evaluation/ground_truth.csv
+noise_model_nominal:
+  prior_sigma: [0.150, 0.150, 0.080]
+  odometry_sigma: [0.055, 0.035, 0.018]
+  gps_sigma: [0.62, 0.62]
+  loop_closure_sigma: [0.16, 0.16, 0.045]
+  landmark_sigma: [0.22, 0.045]
+required_caution:
+  - Do not use ground_truth.csv during graph construction, parameter tuning, outlier detection, or optimization.
+  - ground_truth.csv is allowed only for final metrics and final comparison plots.
+  - Some measurements are deliberately inconsistent. No outlier labels are provided in the student package.

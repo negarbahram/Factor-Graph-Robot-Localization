@@ -1,0 +1,4 @@
+ordering,fill_edges,max_induced_clique_size
+temporal_0_to_259,873,8
+reverse_259_to_0,873,8
+greedy_min_degree,255,6
